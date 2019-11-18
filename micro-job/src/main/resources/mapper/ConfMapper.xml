@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eagle.micro.job.mapper.ConfMapper">
+	<resultMap id="QrtzJobMap" type="QrtzJob">
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="conf_name" property="confName"
+			jdbcType="VARCHAR" />
+		<result column="job_name" property="jobName" jdbcType="VARCHAR" />
+		<result column="job_group" property="jobGroup"
+			jdbcType="VARCHAR" />
+		<result column="trigger_name" property="triggerName"
+			jdbcType="VARCHAR" />
+		<result column="trigger_group" property="triggerGroup"
+			jdbcType="VARCHAR" />
+		<result column="job_manager_class" property="jobManagerClass"
+			jdbcType="VARCHAR" />
+		<result column="cron" property="cron" jdbcType="VARCHAR" />
+		<result column="job_data" property="jobData" jdbcType="VARCHAR" />
+		<result column="enabled" property="enabled" jdbcType="INTEGER" />
+	</resultMap>
+
+	<select id="get" resultMap="QrtzJobMap">
+		SELECT id, conf_name, job_name,
+		job_group, trigger_name, trigger_group, cron, job_data,
+		job_manager_class, enabled FROM qrtz_job
+		WHERE id = #{id}
+	</select>
+
+	<select id="query" parameterType="QrtzJob"
+		resultMap="QrtzJobMap">
+		SELECT id, conf_name, job_name,
+		job_group, trigger_name, trigger_group,
+		cron, job_data,
+		job_manager_class, enabled FROM qrtz_job
+		<where>
+			<if test="confName != null">
+				AND conf_name LIKE '%' || #{confName} || '%'
+			</if>
+			<if test="enabled != null">
+				AND enabled = #{enabled}
+			</if>
+			<if test="jobManagerClass != null">
+				AND job_manager_class = #{jobManagerClass}
+			</if>
+		</where>
+	</select>
+
+	<insert id="save">
+		INSERT INTO qrtz_job (id, conf_name, job_name,
+		job_group, trigger_name, trigger_group, cron, job_data,
+		job_manager_class) VALUES (#{id}, #{confName}, #{jobName},
+		#{jobGroup},
+		#{triggerName}, #{triggerGroup}, #{cron}, #{jobData},
+		#{jobManagerClass})
+	</insert>
+
+	<update id="update" parameterType="QrtzJob">
+		UPDATE qrtz_job
+		<trim prefix="set" suffixOverrides=",">
+			<if test="confName != null">
+				conf_name = #{confName},
+			</if>
+			<if test="jobData != null">
+				job_data = #{jobData},
+			</if>
+			<if test="cron != null">
+				cron = #{cron}
+			</if>
+		</trim>
+		WHERE id = #{id}
+	</update>
+
+	<update id="enable">
+		UPDATE qrtz_job SET enabled = #{flag} WHERE id =
+		#{id}
+	</update>
+
+	<delete id="remove">
+		DELETE FROM qrtz_job WHERE id = #{id}
+	</delete>
+</mapper>
