@@ -4,7 +4,13 @@
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
+    <dependencies>
+        <dependency>
+            <groupId>org.xmlunit</groupId>
+            <artifactId>xmlunit-core</artifactId>
+        </dependency>
+    </dependencies>
+    <parent>
 		<groupId>com.eagle.micro</groupId>
 		<artifactId>micro-app</artifactId>
 		<version>0.0.1-SNAPSHOT</version>

@@ -1,12 +1,11 @@
 package com.eagle.micro.app.demo.infrastructure.persistence;
 
-import java.util.List;
-
+import com.eagle.micro.app.demo.application.api.response.UserResponseDTO;
+import com.eagle.micro.app.demo.infrastructure.persistence.po.UserPO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.eagle.micro.app.demo.application.api.response.UserResponseDTO;
-import com.eagle.micro.app.demo.infrastructure.persistence.po.UserPO;
+import java.util.List;
 
 public interface JpaUserPORepository extends JpaRepository<UserPO, Long> {
 

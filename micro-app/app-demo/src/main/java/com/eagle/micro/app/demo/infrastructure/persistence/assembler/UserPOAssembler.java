@@ -1,12 +1,11 @@
 package com.eagle.micro.app.demo.infrastructure.persistence.assembler;
 
-import org.springframework.stereotype.Component;
-
 import com.eagle.micro.app.demo.domain.entity.User;
 import com.eagle.micro.app.demo.infrastructure.persistence.assembler.mapper.AddressPOMapper;
 import com.eagle.micro.app.demo.infrastructure.persistence.assembler.mapper.UserPOMapper;
 import com.eagle.micro.app.demo.infrastructure.persistence.po.AddressPO;
 import com.eagle.micro.app.demo.infrastructure.persistence.po.UserPO;
+import org.springframework.stereotype.Component;
 
 /**
  * UserPO Assembler

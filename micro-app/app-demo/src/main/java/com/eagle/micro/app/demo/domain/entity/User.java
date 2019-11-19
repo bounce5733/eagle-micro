@@ -3,13 +3,7 @@ package com.eagle.micro.app.demo.domain.entity;
 import com.eagle.micro.app.demo.common.util.SpringContextUtil;
 import com.eagle.micro.app.demo.domain.external.UserExtService;
 import com.eagle.micro.app.demo.domain.vo.Address;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * 领域对象放在domain.entity中

@@ -1,10 +1,9 @@
 package com.eagle.micro.app.demo.infrastructure.persistence.assembler.mapper;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
-
 import com.eagle.micro.app.demo.domain.entity.User;
 import com.eagle.micro.app.demo.infrastructure.persistence.po.UserPO;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
 /**
  * UserPO Mapper

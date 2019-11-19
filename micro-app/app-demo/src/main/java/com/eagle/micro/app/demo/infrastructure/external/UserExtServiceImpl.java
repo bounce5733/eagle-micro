@@ -1,11 +1,9 @@
 package com.eagle.micro.app.demo.infrastructure.external;
 
-import org.springframework.stereotype.Service;
-
 import com.eagle.micro.app.demo.domain.entity.User;
 import com.eagle.micro.app.demo.domain.external.UserExtService;
-
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 /**
  * UserExtService接口实现

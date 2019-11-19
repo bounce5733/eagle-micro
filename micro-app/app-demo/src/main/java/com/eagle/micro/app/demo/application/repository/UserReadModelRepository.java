@@ -1,8 +1,8 @@
 package com.eagle.micro.app.demo.application.repository;
 
-import java.util.List;
-
 import com.eagle.micro.app.demo.application.api.response.UserResponseDTO;
+
+import java.util.List;
 
 /**
  * 与领域无关的查询可以直接走读模型

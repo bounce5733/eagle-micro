@@ -1,12 +1,11 @@
 package com.eagle.micro.app.demo.infrastructure.persistence.assembler.mapper;
 
+import com.eagle.micro.app.demo.domain.vo.Address;
+import com.eagle.micro.app.demo.infrastructure.persistence.po.AddressPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
-
-import com.eagle.micro.app.demo.domain.vo.Address;
-import com.eagle.micro.app.demo.infrastructure.persistence.po.AddressPO;
 
 @Mapper
 public interface AddressPOMapper {
