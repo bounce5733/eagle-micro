@@ -1,5 +1,6 @@
 package com.eagle.micro.app.demo.application.api;
 
+import brave.Tracing;
 import com.eagle.micro.app.demo.application.api.request.AddUserRequestDTO;
 import com.eagle.micro.app.demo.application.api.response.UserResponseDTO;
 import com.eagle.micro.app.demo.application.service.UserAppService;
@@ -42,10 +43,10 @@ public class UserApi {
     @GetMapping("/v1/users")
     public List<UserResponseDTO> queryAll() {
 
-        Tracing current = Tracing.current();
-        log.info("====  采样为：{} ====", current.currentTraceContext().get().sampled());
-
-        log.info("==== get user list ====");
+//        Tracing current = Tracing.current();
+//        log.info("====  采样为：{} ====", current.currentTraceContext().get().sampled());
+//
+//        log.info("==== get user list ====");
         return userAppService.queryUsers();
     }
 

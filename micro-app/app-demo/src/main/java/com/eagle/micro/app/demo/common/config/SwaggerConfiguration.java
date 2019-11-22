@@ -26,7 +26,7 @@ import java.util.List;
 @Configuration
 public class SwaggerConfiguration {
 
-    @Value("${swagger.flag:true")
+    @Value("${swagger.flag:true}")
     private boolean swaggerFlag;
 
     @Value("${eureka.instance.metadata-map.version}")
