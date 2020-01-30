@@ -1,9 +1,13 @@
-/**/.idea/
-/**/*.iml
-/**/.classpath
-/**/.project
-/**/.settings/
-/**/logs/
-/**/.DS_Store
-/**/*.class
-/**/target/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+logs/
+.DS_Store
+*.class
+target/
+# Package Files #
+*.jar
+*.war
+*.ear
