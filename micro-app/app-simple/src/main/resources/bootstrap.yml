@@ -2,7 +2,7 @@ spring:
   profiles:
     active: local
   appliation:
-    name: app-demo
+    name: app-simple
 apollo:
   bootstrap:
     enabled: true

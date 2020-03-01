@@ -1,7 +1,7 @@
 package com.eagle.micro.app.demo.application.external;
 
-import com.eagle.micro.app.demo.application.external.request.AddUserExtRequest;
 import com.eagle.micro.app.demo.common.config.FeignClientLogConfiguration;
+import com.eagle.micro.app.demo.application.external.request.AddUserExtRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

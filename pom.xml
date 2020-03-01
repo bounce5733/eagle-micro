@@ -99,5 +99,5 @@
 		<module>micro-job</module>
 		<module>micro-eureka</module>
 		<module>micro-app</module>
-	</modules>
+    </modules>
 </project>

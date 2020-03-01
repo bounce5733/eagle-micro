@@ -2,6 +2,9 @@ package com.eagle.micro.job.service;
 
 import java.util.Objects;
 
+import com.eagle.micro.job.manager.JobManager;
+import com.eagle.micro.job.mapper.ConfMapper;
+import com.eagle.micro.util.IdUtil;
 import org.quartz.SchedulerException;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.eagle.micro.job.manager.JobManager;
-import com.eagle.micro.job.mapper.ConfMapper;
 import com.eagle.micro.model.job.JobEnum;
 import com.eagle.micro.model.job.QrtzJob;
-import com.eagle.micro.util.IdUtil;
 
 @Service
 public class ConfService implements ApplicationContextAware {

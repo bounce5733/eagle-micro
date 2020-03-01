@@ -1,11 +1,10 @@
 package com.eagle.micro.job.detail;
 
+import com.eagle.micro.job.mapper.ProcMapper;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
-
-import com.eagle.micro.job.mapper.ProcMapper;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

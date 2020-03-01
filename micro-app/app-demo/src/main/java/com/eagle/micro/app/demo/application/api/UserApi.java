@@ -1,6 +1,5 @@
 package com.eagle.micro.app.demo.application.api;
 
-import brave.Tracing;
 import com.eagle.micro.app.demo.application.api.request.AddUserRequestDTO;
 import com.eagle.micro.app.demo.application.api.response.UserResponseDTO;
 import com.eagle.micro.app.demo.application.service.UserAppService;

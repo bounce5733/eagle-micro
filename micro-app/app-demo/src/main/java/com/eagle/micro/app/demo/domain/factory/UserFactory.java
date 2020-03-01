@@ -2,8 +2,8 @@ package com.eagle.micro.app.demo.domain.factory;
 
 import com.eagle.micro.app.demo.common.exception.ErrorCode;
 import com.eagle.micro.app.demo.common.exception.UserException;
-import com.eagle.micro.app.demo.domain.entity.User;
 import com.eagle.micro.app.demo.domain.vo.Address;
+import com.eagle.micro.app.demo.domain.entity.User;
 
 /**
  * 用户工厂

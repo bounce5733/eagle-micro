@@ -101,5 +101,6 @@
 
 	<modules>
 		<module>app-demo</module>
+		<module>app-simple</module>
 	</modules>
 </project>

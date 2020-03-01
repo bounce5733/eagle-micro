@@ -1,9 +1,9 @@
 package com.eagle.micro.app.demo.infrastructure.persistence;
 
 import com.eagle.micro.app.demo.application.api.response.UserResponseDTO;
-import com.eagle.micro.app.demo.application.repository.UserReadModelRepository;
 import com.eagle.micro.app.demo.domain.entity.User;
 import com.eagle.micro.app.demo.domain.repository.UserRepository;
+import com.eagle.micro.app.demo.application.repository.UserReadModelRepository;
 import com.eagle.micro.app.demo.infrastructure.persistence.assembler.UserPOAssembler;
 import com.eagle.micro.app.demo.infrastructure.persistence.po.AddressPO;
 import com.eagle.micro.app.demo.infrastructure.persistence.po.UserPO;

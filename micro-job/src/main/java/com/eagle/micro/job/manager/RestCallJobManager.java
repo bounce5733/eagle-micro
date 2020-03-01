@@ -1,5 +1,6 @@
 package com.eagle.micro.job.manager;
 
+import com.eagle.micro.job.detail.ProcCallJobDetail;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
 import org.quartz.JobBuilder;
@@ -10,7 +11,6 @@ import org.quartz.TriggerBuilder;
 import org.quartz.TriggerKey;
 import org.springframework.stereotype.Component;
 
-import com.eagle.micro.job.detail.ProcCallJobDetail;
 import com.eagle.micro.model.job.QrtzJob;
 
 import lombok.extern.slf4j.Slf4j;
