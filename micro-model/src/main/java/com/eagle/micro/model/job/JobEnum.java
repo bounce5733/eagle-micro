@@ -8,7 +8,7 @@ public enum JobEnum {
 
 	private final String managerClass;
 
-	private JobEnum(String managerClass) {
+	JobEnum(String managerClass) {
 		this.managerClass = managerClass;
 	}
 

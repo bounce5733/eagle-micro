@@ -11,11 +11,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @Version 1.0
  **/
 @Data
-@ConfigurationProperties("app.kafka.topic")
-public class TopicProperties {
+@ConfigurationProperties("app.kafka")
+public class KafkaProperties {
+
+    private String servers;
 
     private String groupId;
 
-    private String[] topicNames;
+    private String[] indexSourceTopic;
+
+    private String[] indexSinkTopic;
 
 }

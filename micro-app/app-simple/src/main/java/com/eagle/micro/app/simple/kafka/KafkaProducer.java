@@ -1,7 +1,12 @@
 package com.eagle.micro.app.simple.kafka;
 
+import com.eagle.micro.model.flink.IndexSource;
+import com.eagle.micro.app.simple.utils.IndexSourceFactory;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -20,31 +25,36 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 @Service
 public class KafkaProducer {
 
-    @Autowired
-    private TopicProperties topicProps;
+    private static float AMOUNT = 0;
+
+    private static int COUNT = 0;
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaProperties kafkaProperties;
 
-    @Scheduled(fixedDelay = 1 * 60 * 1000)
-    public void sendMessage() {
-        log.info("Kafka开始生产数据...");
-        String data = "kafka测试数据...";
-        String topic = topicProps.getTopicNames()[0];
-        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, data);
-        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+    @Autowired
+    @Qualifier("kafkaIndexSourceTemplate")
+    private KafkaTemplate<String, IndexSource> kafkaIndexSourceTemplate;
 
+    @Scheduled(fixedDelay = 1000)
+    public void sendIndexSource() {
+        IndexSource index = IndexSourceFactory.create();
+        String topic = kafkaProperties.getIndexSourceTopic()[0];
+        ListenableFuture<SendResult<String, IndexSource>> future = kafkaIndexSourceTemplate.send(topic, index);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, IndexSource>>() {
+
+            @SneakyThrows
             @Override
-            public void onSuccess(SendResult<String, String> result) {
-                log.info("Kafka 成功发送消息，主题：{}，数据：{}", topic, data);
+            public void onSuccess(SendResult<String, IndexSource> result) {
+                log.info("kafka 发送指标：序号{},内容{}", COUNT++, new ObjectMapper().writeValueAsString(index));
             }
 
+            @SneakyThrows
             @Override
             public void onFailure(Throwable ex) {
-                log.error("Kafka 发送消息失败，主题：{}，数据：{}，异常：{}", topic, data, ex);
+                log.error("Kafka 发送消息失败，主题：{}，数据：{}，异常：{}", topic, new ObjectMapper().writeValueAsString(index), ex);
             }
         });
-        log.info("Kafka生产数据结束...");
     }
 
 }

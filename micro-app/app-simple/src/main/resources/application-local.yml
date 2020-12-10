@@ -6,28 +6,11 @@ spring:
     refresh:
       refreshable: none # 这个配置因为springboot循环依赖bug
 
-  kafka:
-    bootstrap-servers: 192.168.3.18:9092
-
-    consumer:
-      enable-auto-commit: false
-      auto-commit-interval: 100ms
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      properties:
-        session.timeout.ms: 15000
-
-    producer:
-      enable-auto-commit: false
-      auto-commit-interval: 100ms
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      properties:
-        session.timeout.ms: 15000
-
 app:
   kafka:
-    topic:
-      group-id: kafka-test
-      topic-names:
-        - multi-hello-kafka
+    servers: 127.0.0.1:9092
+    group-id: fink-demo
+    index-source-topic:
+      - fink-index-source
+    index-sink-topic:
+      - fink-index-sink

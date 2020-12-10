@@ -29,7 +29,7 @@ public class QrtzJob {
 
 	private String jobManagerClass; // 任务执行类
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings(value = "unchecked")
 	public Map<String, String> getJobDataMap() {
 		return new Gson().fromJson(jobData, Map.class);
 	}
