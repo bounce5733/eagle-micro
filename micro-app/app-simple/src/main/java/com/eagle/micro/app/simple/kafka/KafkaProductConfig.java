@@ -19,7 +19,6 @@ import java.util.Map;
  * @Version 1.0
  **/
 @Configuration
-@EnableConfigurationProperties(KafkaProperties.class)
 public class KafkaProductConfig {
 
 

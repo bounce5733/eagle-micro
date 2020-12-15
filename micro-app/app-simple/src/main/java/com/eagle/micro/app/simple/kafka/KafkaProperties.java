@@ -1,7 +1,13 @@
 package com.eagle.micro.app.simple.kafka;
 
+import com.alibaba.nacos.api.config.ConfigType;
+import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
+import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * TODO
@@ -11,7 +17,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @Version 1.0
  **/
 @Data
-@ConfigurationProperties("app.kafka")
+@Configuration
+@NacosConfigurationProperties(dataId = "kafka", groupId = "MIDDLEWARE", type = ConfigType.YAML, autoRefreshed = true)
 public class KafkaProperties {
 
     private String servers;

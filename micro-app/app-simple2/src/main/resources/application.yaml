@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: app-simple2
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+    namespace: dev
+    #username: micro-app dubbo注册认证存在bug,nacos认证目前无法开启
+    #password: admin,123
+dubbo:
+  registry:
+    address: nacos://127.0.0.1:8848
+    parameters:
+      namespace: dev
+    #username: micro-app dubbo注册认证存在bug,下一版本会修复
+    #password: admin,123
+  consumer:
+    check: false

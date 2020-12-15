@@ -36,7 +36,7 @@ public class KafkaProducer {
     @Qualifier("kafkaIndexSourceTemplate")
     private KafkaTemplate<String, IndexSource> kafkaIndexSourceTemplate;
 
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 10000)
     public void sendIndexSource() {
         IndexSource index = IndexSourceFactory.create();
         String topic = kafkaProperties.getIndexSourceTopic()[0];

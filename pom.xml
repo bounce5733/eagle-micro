@@ -18,6 +18,7 @@
 	<properties>
 		<project.build.soruceEncoding>UTF-8</project.build.soruceEncoding>
 		<java.version>1.8</java.version>
+		<dubbo.version>2.7.7</dubbo.version>
 	</properties>
 
 	<dependencies>
@@ -31,8 +32,32 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 		</dependency>
-	</dependencies>
 
+		<dependency>
+			<groupId>com.alibaba.boot</groupId>
+			<artifactId>nacos-config-spring-boot-starter</artifactId>
+			<version>0.2.7</version>
+		</dependency>
+
+		<!-- Dubbo Nacos registry dependency -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-registry-nacos</artifactId>
+			<version>${dubbo.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-spring-boot-starter</artifactId>
+			<version>${dubbo.version}</version>
+		</dependency>
+	</dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -45,12 +70,6 @@
 				<groupId>com.eagle.micro</groupId>
 				<artifactId>micro-util</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-
-			<dependency>
-				<groupId>com.ctrip.framework.apollo</groupId>
-				<artifactId>apollo-client</artifactId>
-				<version>1.1.2</version>
 			</dependency>
 
 			<dependency>
@@ -76,20 +95,6 @@
 				<artifactId>mybatis-spring-boot-starter</artifactId>
 				<version>1.1.1</version>
 			</dependency>
-
-			<dependency>
-				<groupId>io.github.openfeign</groupId>
-				<artifactId>feign-httpclient</artifactId>
-				<version>9.7.0</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Greenwich.SR1</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -97,7 +102,6 @@
 		<module>micro-model</module>
 		<module>micro-util</module>
 		<module>micro-job</module>
-		<module>micro-eureka</module>
 		<module>micro-app</module>
-    </modules>
+	</modules>
 </project>
